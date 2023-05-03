@@ -15,7 +15,8 @@ node {
                     sh "git commit -m 'Done by Jenkins Job change manifest: ${env.BUILD_NUMBER}'"
                     sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/11th-HRD-Instructor/khosting-api-manifest.git HEAD:master'
           
-                    notifyEvents message: 'API Update successfully!', token: 'YCCI6mB8DHwtSlRoWGCFCT3OjPeifK5R'
+                    // notifyEvents message: 'API Update successfully!', token: 'YCCI6mB8DHwtSlRoWGCFCT3OjPeifK5R'
+                    
                 }
             }
         }
