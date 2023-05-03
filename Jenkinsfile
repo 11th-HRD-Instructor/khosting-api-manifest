@@ -13,7 +13,8 @@ node {
                     sh "sed -i 's+rotanakkosal/khosting-api-v1.*+rotanakkosal/khosting-api-v1:${DOCKERTAG}+g' khosting-api-manifest/spring-api-deployment.yml"
                     sh 'git add .'
                     sh "git commit -m 'Done by Jenkins Job change manifest: ${env.BUILD_NUMBER}'"
-                    sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/khosting-api-manifest.git HEAD:main'
+                    sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/11th-HRD-Instructor/khosting-api-manifest.git HEAD:master'
+          
                     notifyEvents message: 'API Update successfully!', token: 'YCCI6mB8DHwtSlRoWGCFCT3OjPeifK5R'
                 }
             }
