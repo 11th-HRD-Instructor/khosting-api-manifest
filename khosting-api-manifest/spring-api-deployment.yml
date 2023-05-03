@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: khosting-api
+  labels:
+    app: khosting-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: khosting-api
+  template:
+    metadata:
+      labels:
+        app: khosting-api
+    spec:
+      volumes:
+      - name: data
+        hostPath:
+          path: /home/devops/workspace
+          type: DirectoryOrCreate
+      containers:
+        - name: khosting-api
+          image: rotanakkosal/khosting-api-v1:44
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: data
+              mountPath: /app/src/main/resources/workspace/
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: khosting-api-service
+spec:
+  type: NodePort
+  selector:            
+    app: khosting-api
+  ports:
+    - port: 8080
+      name: khosting-api-service
+      targetPort: 8080
+      nodePort: 30300
