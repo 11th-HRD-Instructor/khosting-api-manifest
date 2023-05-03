@@ -10,7 +10,7 @@ node {
                     sh 'git config user.email rotanakkosal03@gmail.com'
                     sh 'git config user.name Rotanakkosal'
                     sh 'cat khosting-api-manifest/spring-api-deployment.yml'
-                    sh "sed -i 's+khosting/khosting-api-v1.*+khosting/khosting-api-v1:${DOCKERTAG}+g' khosting-api-manifest/spring-api-deployment.yml"
+                    sh "sed -i 's+rotanakkosal/khosting-api-v1.*+rotanakkosal/khosting-api-v1:${DOCKERTAG}+g' khosting-api-manifest/spring-api-deployment.yml"
                     sh 'git add .'
                     sh "git commit -m 'Done by Jenkins Job change manifest: ${env.BUILD_NUMBER}'"
                     sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/11th-HRD-Instructor/khosting-infra.git HEAD:main'
