@@ -21,7 +21,7 @@ spec:
           type: DirectoryOrCreate
       containers:
         - name: khosting-api
-          image: rotanakkosal/khosting-api-v1:30
+          image: rotanakkosal/khosting-api-v1:31
           ports:
             - containerPort: 8080
           volumeMounts:
